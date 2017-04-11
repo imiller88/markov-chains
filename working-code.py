@@ -43,11 +43,16 @@ for i in range(len(text) - 1):
     words_after = []
     words_after.append(text[i+2])
 
+
+
+
+
 chains = {}
 for i in range(len(text) - 2):
     bigram = (text[i], text[i + 1])
 
     if bigram in chains.keys():
+        words_after = chains[bigram]
         words_after.append(text[i + 2])
     else:
         words_after = []

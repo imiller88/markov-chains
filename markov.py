@@ -40,27 +40,23 @@ def make_chains(text_string):
         ['mary', 'juanita']
     """
 
+
     chains = {}
-    i = 0
-    #j = i + 1
+    for i in range(len(text_string) - 2):
+        bigram = (text_string[i], text_string[i + 1])
 
+        if bigram in chains.keys():
+            words_after = chains[bigram]
+            words_after.append(text_string[i + 2])
+        else:
+            words_after = []
+            words_after.append(text_string[i + 2])
 
-    #for text_string.index(text_string[j]) in enumerate(text_string):
-    for i in range(1, len(text_string) - 1):
-        words_after_j = []
-
-        words_after_j.append(text_string[i+2])
-
-        for i in range(len(text_string) - 1):
-            bigram = (text_string[i], text_string[i+1])
-            chains[bigram] = words_after_j
-
-        i+=1
-        #j+=1
+        chains[bigram] = words_after
 
     # your code goes here
 
-    print chains
+    return chains
 
 
 def make_text(chains):
