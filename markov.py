@@ -63,22 +63,42 @@ def make_text(chains):
     """Returns text from chains."""
 
     words = []
+    # for key in chains:
+    #     # if key[0] == key[0].title():
+    #     #     words.append(key[0], key[1])
+
 
     # your code goes here
+    i = 1
+    bigram = choice(chains.keys())
+    words.append(bigram[0])
+    words.append(bigram[1])
+
+    # for key in chains:
+    while True:
+        #if bigram doesn't exist, we need to break. else see below
+
+        if bigram in chains.keys():
+            words.append(choice(chains[bigram]))
+            bigram = (words[i], words[i+1])
+            i+=1
+        else:
+            # words.append(choice(chains[bigram]))
+            break
 
     return " ".join(words)
 
 
-input_path = "green-eggs.txt"
+input_path = "gettysburg.txt"
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
 
 # Get a Markov chain
-#chains = make_chains(input_text)
+chains = make_chains(input_text)
 
 # Produce random text
-#random_text = make_text(chains)
+random_text = make_text(chains)
 
-#print random_text
+print random_text
 
