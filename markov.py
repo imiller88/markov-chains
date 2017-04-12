@@ -114,7 +114,7 @@ def char_limit(markov_string):
             markov_string = markov_string[:char_after_index]
             break
 
-    print markov_string
+    return markov_string
 
 
 
