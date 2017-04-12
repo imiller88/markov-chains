@@ -105,17 +105,17 @@ def make_text(chains):
 
 def char_limit(markov_string):
     """ cuts Markov string from previous function to a 140-character sentence """
-    # for character in string:
-    #   if character is punctuation:
-    #       delete all characters after character
-    # punctuation = set(string.punctuation)
 
-    for char in markov_string:
-        if char in ["?", ".", "!"]:
-            char_after_index = markov_string.index(char) + 1
+    markov_string = markov_string[:140]
+
+    for i in xrange(len(markov_string) - 1, 0, -1):
+        if markov_string[i] in ["?", ".", "!"]:
+            char_after_index = i + 1
             markov_string = markov_string[:char_after_index]
+            break
 
     print markov_string
+
 
 
 
