@@ -63,16 +63,21 @@ def make_text(chains):
     """Returns text from chains."""
 
     words = []
-    # for key in chains:
-    #     # if key[0] == key[0].title():
-    #     #     words.append(key[0], key[1])
+    # bigram = choice(chains.keys())
+    upper_bigrams = []
+    for bigram in chains:
+        if bigram[0][0] == bigram[0][0].upper():
+            upper_bigrams.append(bigram)
+
+
+    bigram = choice(upper_bigrams)
+    words.append(bigram[0])
+    words.append(bigram[1])
 
 
     # your code goes here
     i = 1
-    bigram = choice(chains.keys())
-    words.append(bigram[0])
-    words.append(bigram[1])
+
 
     # for key in chains:
     while True:
@@ -89,7 +94,7 @@ def make_text(chains):
     return " ".join(words)
 
 
-input_path = "gettysburg.txt"
+input_path = "green-eggs.txt"
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
@@ -101,4 +106,3 @@ chains = make_chains(input_text)
 random_text = make_text(chains)
 
 print random_text
-
