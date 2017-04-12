@@ -2,9 +2,12 @@
 
 
 from random import choice
+import sys
 
+file_path1 = sys.argv[1]
+# file_path2 = sys.argv[2]
 
-def open_and_read_file(file_path1, file_path2):
+def open_and_read_file(file_path1):
     """Takes file path as string; returns text as string.
 
     Takes a string that is a file path, opens the file, and turns
@@ -12,10 +15,12 @@ def open_and_read_file(file_path1, file_path2):
     """
 
     # your code goes here
-    text1 = open(file_path1).read().split()
-    text2 = open(file_path2).read().split()
 
-    text = text1 + text2
+
+    text1 = open(file_path1).read().split()
+    # text2 = open(file_path2).read().split()
+
+    text = text1
 
     return text
 
@@ -97,11 +102,11 @@ def make_text(chains):
     return " ".join(words)
 
 
-input_path1 = "could-i.txt"
-input_path2 = "green-eggs.txt"
+# input_path1 = "could-i.txt"
+# input_path2 = "green-eggs.txt"
 
 # Open the file and turn it into one long string
-input_text = open_and_read_file(input_path1, input_path2)
+input_text = open_and_read_file(file_path1)
 
 # Get a Markov chain
 chains = make_chains(input_text)
