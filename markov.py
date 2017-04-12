@@ -3,6 +3,7 @@
 
 from random import choice
 import sys
+import string
 
 file_path1 = sys.argv[1]
 # file_path2 = sys.argv[2]
@@ -102,6 +103,22 @@ def make_text(chains):
     return " ".join(words)
 
 
+def char_limit(markov_string):
+    """ cuts Markov string from previous function to a 140-character sentence """
+    # for character in string:
+    #   if character is punctuation:
+    #       delete all characters after character
+    # punctuation = set(string.punctuation)
+
+    for char in markov_string:
+        if char in ["?", ".", "!"]:
+            char_after_index = markov_string.index(char) + 1
+            markov_string = markov_string[:char_after_index]
+
+    print markov_string
+
+
+
 # input_path1 = "could-i.txt"
 # input_path2 = "green-eggs.txt"
 
@@ -114,4 +131,6 @@ chains = make_chains(input_text)
 # Produce random text
 random_text = make_text(chains)
 
-print random_text
+# print random_text
+
+tweet = char_limit(random_text)
