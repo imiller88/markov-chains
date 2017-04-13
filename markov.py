@@ -5,7 +5,7 @@ from random import choice
 import sys
 import string
 
-file_path1 = sys.argv[1]
+#file_path1 = sys.argv[1]
 # file_path2 = sys.argv[2]
 
 def open_and_read_file(file_path1):
@@ -18,7 +18,7 @@ def open_and_read_file(file_path1):
     # your code goes here
 
 
-    text1 = open(file_path1).read().split()
+    text1 = open(file_path1).strip().read().split()
     # text2 = open(file_path2).read().split()
 
     text = text1
@@ -123,15 +123,15 @@ def char_limit(markov_string):
 # input_path2 = "green-eggs.txt"
 
 # Open the file and turn it into one long string
-input_text = open_and_read_file(file_path1)
+# input_text = open_and_read_file(file_path)
 
 # Get a Markov chain
-chains = make_chains(input_text)
+# chains = make_chains(input_text)
 
 # Produce random text
-random_text = make_text(chains)
+# random_text = make_text(chains)
 
 # print random_text
 
-tweet = char_limit(random_text)
-print tweet
+# tweet = char_limit(random_text)
+# print tweet

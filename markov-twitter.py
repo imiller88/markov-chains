@@ -2,6 +2,8 @@ import os
 import twitter
 import sys
 from markov import open_and_read_file, make_chains, make_text, char_limit
+from tweetcleaner import clean_tweets
+import cleantrumptweets
 # from tweet_dumper import get_all_tweets
 
 api = twitter.Api(
@@ -13,6 +15,7 @@ api = twitter.Api(
 # print api.VerifyCredentials()
 
 input_text = sys.argv[1]
+# input_text = clean_tweets("green-eggs.txt")
 
 text = open_and_read_file(input_text)
 chains = make_chains(text)

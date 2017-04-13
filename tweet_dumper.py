@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+import os
 import tweepy #https://github.com/tweepy/tweepy
 import csv
 
 #Twitter API credentials
-consumer_key = "TWITTER_CONSUMER_KEY"
-consumer_secret = "TWITTER_CONSUMER_SECRET"
-access_key = "TWITTER_ACCESS_TOKEN_KEY"
-access_secret = "TWITTER_ACCESS_TOKEN_SECRET"
+consumer_key=os.environ['TWITTER_CONSUMER_KEY']
+consumer_secret=os.environ['TWITTER_CONSUMER_SECRET']
+access_key=os.environ['TWITTER_ACCESS_TOKEN_KEY']
+access_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET']
 
 
 def get_all_tweets(screen_name):
