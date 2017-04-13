@@ -134,3 +134,4 @@ random_text = make_text(chains)
 # print random_text
 
 tweet = char_limit(random_text)
+print tweet
